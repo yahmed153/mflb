@@ -2582,7 +2582,12 @@
                             </li>
                         </ul>
                     </div>
-                    <form class="contact-form reveal" action="#" method="POST">
+                    <form
+                        id="contact-form"
+                        class="contact-form reveal"
+                        action="#"
+                        method="POST"
+                    >
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="contact-name">Name</label>
@@ -2624,7 +2629,11 @@
                             ></textarea>
                         </div>
                         <div class="form-submit">
-                            <button type="submit" class="btn btn-primary">
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                                onclick="sendContactForm(event)"
+                            >
                                 Send message
                                 <svg
                                     width="18"
@@ -2720,6 +2729,238 @@
         </footer>
 
         <script>
+            /* ===== CONTACT FORM ===== */
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            function validateEmail(email) {
+                return emailRegex.test(email);
+            }
+
+            function setEmailError(message) {
+                const input = document.getElementById("contact-email");
+                const group = input.closest(".form-group");
+                // Remove previous error if any
+                const existing = group.querySelector(".form-error");
+                if (existing) existing.remove();
+
+                if (message) {
+                    input.style.borderColor = "#ef4444";
+                    input.style.boxShadow = "0 0 0 3px rgba(239, 68, 68, 0.2)";
+                    const error = document.createElement("span");
+                    error.className = "form-error";
+                    error.textContent = message;
+                    error.style.cssText =
+                        "display:block;font-size:0.78rem;color:#ef4444;margin-top:0.35rem;font-weight:500;";
+                    group.appendChild(error);
+                } else {
+                    input.style.borderColor = "";
+                    input.style.boxShadow = "";
+                }
+            }
+
+            function setNameError(message) {
+                const input = document.getElementById("contact-name");
+                const group = input.closest(".form-group");
+                const existing = group.querySelector(".form-error");
+                if (existing) existing.remove();
+
+                if (message) {
+                    input.style.borderColor = "#ef4444";
+                    input.style.boxShadow = "0 0 0 3px rgba(239, 68, 68, 0.2)";
+                    const error = document.createElement("span");
+                    error.className = "form-error";
+                    error.textContent = message;
+                    error.style.cssText =
+                        "display:block;font-size:0.78rem;color:#ef4444;margin-top:0.35rem;font-weight:500;";
+                    group.appendChild(error);
+                } else {
+                    input.style.borderColor = "";
+                    input.style.boxShadow = "";
+                }
+            }
+
+            function setSubjectError(message) {
+                const input = document.getElementById("contact-subject");
+                const group = input.closest(".form-group");
+                const existing = group.querySelector(".form-error");
+                if (existing) existing.remove();
+
+                if (message) {
+                    input.style.borderColor = "#ef4444";
+                    input.style.boxShadow = "0 0 0 3px rgba(239, 68, 68, 0.2)";
+                    const error = document.createElement("span");
+                    error.className = "form-error";
+                    error.textContent = message;
+                    error.style.cssText =
+                        "display:block;font-size:0.78rem;color:#ef4444;margin-top:0.35rem;font-weight:500;";
+                    group.appendChild(error);
+                } else {
+                    input.style.borderColor = "";
+                    input.style.boxShadow = "";
+                }
+            }
+
+            function setMessageError(message) {
+                const input = document.getElementById("contact-message");
+                const group = input.closest(".form-group");
+                const existing = group.querySelector(".form-error");
+                if (existing) existing.remove();
+
+                if (message) {
+                    input.style.borderColor = "#ef4444";
+                    input.style.boxShadow = "0 0 0 3px rgba(239, 68, 68, 0.2)";
+                    const error = document.createElement("span");
+                    error.className = "form-error";
+                    error.textContent = message;
+                    error.style.cssText =
+                        "display:block;font-size:0.78rem;color:#ef4444;margin-top:0.35rem;font-weight:500;";
+                    group.appendChild(error);
+                } else {
+                    input.style.borderColor = "";
+                    input.style.boxShadow = "";
+                }
+            }
+
+            // Clear email error on input
+            document
+                .getElementById("contact-email")
+                .addEventListener("input", () => setEmailError(null));
+
+            // Clear name error on input
+            document
+                .getElementById("contact-name")
+                .addEventListener("input", () => setNameError(null));
+
+            // Clear subject error on input
+            document
+                .getElementById("contact-subject")
+                .addEventListener("input", () => setSubjectError(null));
+
+            // Clear message error on input
+            document
+                .getElementById("contact-message")
+                .addEventListener("input", () => setMessageError(null));
+
+            async function sendContactForm(event) {
+                event.preventDefault();
+
+                const form = document.getElementById("contact-form");
+                const btn = form.querySelector("button[type='submit']");
+                const originalText = btn.innerHTML;
+
+                // Collect form data
+                const nameInput = form.querySelector("#contact-name");
+                const emailInput = form.querySelector("#contact-email");
+                const subjectInput = form.querySelector("#contact-subject");
+                const messageInput = form.querySelector("#contact-message");
+                const name = nameInput.value.trim();
+                const email = emailInput.value.trim();
+                const subject = subjectInput.value.trim();
+                const message = messageInput.value.trim();
+                const data = {
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message,
+                };
+
+                // Validate name
+                if (!name) {
+                    setNameError("Name is required");
+                    nameInput.focus();
+                    return;
+                }
+                if (name.length < 3) {
+                    setNameError("Name must be at least 3 characters");
+                    nameInput.focus();
+                    return;
+                }
+                setNameError(null);
+
+                // Validate email
+                if (!validateEmail(email)) {
+                    setEmailError(
+                        email.length === 0
+                            ? "Email is required"
+                            : "Please enter a valid email address",
+                    );
+                    emailInput.focus();
+                    return;
+                }
+                setEmailError(null);
+
+                // Validate subject
+                const subjectInput = form.querySelector("#contact-subject");
+                const subject = subjectInput.value.trim();
+                if (subject.length === 0) {
+                    setSubjectError("Subject is required");
+                    subjectInput.focus();
+                    return;
+                }
+                if (subject.length < 11) {
+                    setSubjectError("Subject must be at least 11 characters");
+                    subjectInput.focus();
+                    return;
+                }
+                setSubjectError(null);
+
+                // Validate message
+                const messageInput = form.querySelector("#contact-message");
+                const message = messageInput.value.trim();
+                if (message.length === 0) {
+                    setMessageError("Message is required");
+                    messageInput.focus();
+                    return;
+                }
+                if (message.length < 11) {
+                    setMessageError("Message must be at least 11 characters");
+                    messageInput.focus();
+                    return;
+                }
+                setMessageError(null);
+
+                // Show loading state
+                btn.innerHTML = "Sending…";
+                btn.disabled = true;
+
+                try {
+                    const response = await fetch(
+                        "https://myfavoritebookstore.com/contact",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify(data),
+                        },
+                    );
+
+                    if (response.ok) {
+                        btn.innerHTML = "✓ Message sent!";
+                        btn.style.background = "#22c55e";
+                        form.reset();
+                        setTimeout(() => {
+                            btn.innerHTML = originalText;
+                            btn.style.background = "";
+                            btn.disabled = false;
+                        }, 3000);
+                    } else {
+                        throw new Error(
+                            `Server responded with ${response.status}`,
+                        );
+                    }
+                } catch (error) {
+                    console.error("Contact form error:", error);
+                    btn.innerHTML = "✕ Failed — try again";
+                    btn.style.background = "#ef4444";
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.background = "";
+                        btn.disabled = false;
+                    }, 3000);
+                }
+            }
+
             /* ===== THEME TOGGLE ===== */
             const html = document.documentElement;
             const themeToggle = document.getElementById("theme-toggle");
