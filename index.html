@@ -583,7 +583,7 @@
                 align-items: center;
                 justify-content: center;
                 opacity: 0;
-                transition: opacity 0.5s ease;
+                transition: opacity 1s ease;
             }
             .carousel-slide.active {
                 opacity: 1;
@@ -1576,281 +1576,158 @@
                     <div class="hero-carousel">
                         <div class="carousel-slides" id="hero-carousel">
                             <div class="carousel-slide active" data-index="0">
-                                <div
-                                    class="slide-placeholder"
+                                <img
+                                    src="assets/img/demo.jpg"
+                                    alt="Demo"
                                     style="
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    "
+                                />
+                                <div
+                                    style="
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        right: 0;
+                                        padding: 2rem;
                                         background: linear-gradient(
-                                            135deg,
-                                            #1a1a2e,
-                                            #16213e,
-                                            #0f3460
+                                            transparent,
+                                            rgba(0, 0, 0, 0.6)
                                         );
+                                        font-family: var(--font-display);
+                                        font-weight: 700;
+                                        font-size: 0.9rem;
+                                        color: rgba(255, 255, 255, 0.7);
+                                        text-align: center;
                                     "
                                 >
-                                    <div class="kanban-cols">
-                                        <div
-                                            class="kanban-col"
-                                            style="
-                                                background: rgba(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    0.03
-                                                );
-                                            "
-                                        >
-                                            <div
-                                                style="
-                                                    font-size: 0.7rem;
-                                                    color: rgba(
-                                                        255,
-                                                        255,
-                                                        255,
-                                                        0.3
-                                                    );
-                                                    margin-bottom: 0.5rem;
-                                                "
-                                            >
-                                                Todo
-                                            </div>
-                                            <div class="kanban-card"></div>
-                                            <div class="kanban-card"></div>
-                                            <div class="kanban-card"></div>
-                                        </div>
-                                        <div
-                                            class="kanban-col"
-                                            style="
-                                                background: rgba(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    0.03
-                                                );
-                                            "
-                                        >
-                                            <div
-                                                style="
-                                                    font-size: 0.7rem;
-                                                    color: rgba(
-                                                        255,
-                                                        255,
-                                                        255,
-                                                        0.3
-                                                    );
-                                                    margin-bottom: 0.5rem;
-                                                "
-                                            >
-                                                In Progress
-                                            </div>
-                                            <div class="kanban-card"></div>
-                                            <div class="kanban-card"></div>
-                                        </div>
-                                        <div
-                                            class="kanban-col"
-                                            style="
-                                                background: rgba(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    0.03
-                                                );
-                                            "
-                                        >
-                                            <div
-                                                style="
-                                                    font-size: 0.7rem;
-                                                    color: rgba(
-                                                        255,
-                                                        255,
-                                                        255,
-                                                        0.3
-                                                    );
-                                                    margin-bottom: 0.5rem;
-                                                "
-                                            >
-                                                Done
-                                            </div>
-                                            <div class="kanban-card"></div>
-                                            <div class="kanban-card"></div>
-                                            <div class="kanban-card"></div>
-                                            <div class="kanban-card"></div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        style="
-                                            margin-top: 0.5rem;
-                                            font-size: 0.9rem;
-                                        "
-                                    >
-                                        Kanban
-                                    </div>
+                                    Demo this a mobile app of your store
                                 </div>
                             </div>
                             <div class="carousel-slide" data-index="1">
-                                <div
-                                    class="slide-placeholder"
+                                <img
+                                    src="assets/img/demo2.jpg"
+                                    alt="Demo"
                                     style="
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    "
+                                />
+                                <div
+                                    style="
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        right: 0;
+                                        padding: 2rem;
                                         background: linear-gradient(
-                                            135deg,
-                                            #1a1a2e,
-                                            #16213e,
-                                            #1a1a3e
+                                            transparent,
+                                            rgba(0, 0, 0, 0.6)
                                         );
+                                        font-family: var(--font-display);
+                                        font-weight: 700;
+                                        font-size: 0.9rem;
+                                        color: rgba(255, 255, 255, 0.7);
+                                        text-align: center;
                                     "
                                 >
-                                    <div
-                                        style="
-                                            display: flex;
-                                            flex-direction: column;
-                                            gap: 0.4rem;
-                                            width: 70%;
-                                        "
-                                    >
-                                        <div
-                                            style="
-                                                height: 2rem;
-                                                background: rgba(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    0.06
-                                                );
-                                                border-radius: 8px;
-                                                width: 90%;
-                                            "
-                                        ></div>
-                                        <div
-                                            style="
-                                                height: 0.6rem;
-                                                background: rgba(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    0.04
-                                                );
-                                                border-radius: 6px;
-                                                width: 60%;
-                                            "
-                                        ></div>
-                                        <div
-                                            style="
-                                                height: 0.6rem;
-                                                background: rgba(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    0.04
-                                                );
-                                                border-radius: 6px;
-                                                width: 75%;
-                                            "
-                                        ></div>
-                                        <div
-                                            style="
-                                                height: 0.6rem;
-                                                background: rgba(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    0.04
-                                                );
-                                                border-radius: 6px;
-                                                width: 50%;
-                                            "
-                                        ></div>
-                                    </div>
-                                    <div
-                                        style="
-                                            margin-top: 1rem;
-                                            font-size: 0.9rem;
-                                        "
-                                    >
-                                        Issues
-                                    </div>
+                                    Demo this a mobile app of your store 222
                                 </div>
                             </div>
                             <div class="carousel-slide" data-index="2">
-                                <div
-                                    class="slide-placeholder"
+                                <img
+                                    src="assets/img/demo3.jpg"
+                                    alt="Demo"
                                     style="
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    "
+                                />
+                                <div
+                                    style="
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        right: 0;
+                                        padding: 2rem;
                                         background: linear-gradient(
-                                            135deg,
-                                            #16213e,
-                                            #1a1a2e,
-                                            #0f3460
+                                            transparent,
+                                            rgba(0, 0, 0, 0.6)
                                         );
+                                        font-family: var(--font-display);
+                                        font-weight: 700;
+                                        font-size: 0.9rem;
+                                        color: rgba(255, 255, 255, 0.7);
+                                        text-align: center;
                                     "
                                 >
-                                    <div
-                                        style="
-                                            display: flex;
-                                            flex-direction: column;
-                                            gap: 0.5rem;
-                                            width: 65%;
-                                        "
-                                    >
-                                        <div
-                                            style="
-                                                height: 2.5rem;
-                                                background: rgba(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    0.08
-                                                );
-                                                border-radius: 10px;
-                                                display: flex;
-                                                align-items: center;
-                                                padding: 0 1rem;
-                                            "
-                                        >
-                                            <span
-                                                style="
-                                                    font-size: 0.7rem;
-                                                    color: rgba(
-                                                        255,
-                                                        255,
-                                                        255,
-                                                        0.25
-                                                    );
-                                                "
-                                                >+ Add issue title...</span
-                                            >
-                                        </div>
-                                        <div
-                                            style="
-                                                height: 5rem;
-                                                background: rgba(
-                                                    255,
-                                                    255,
-                                                    255,
-                                                    0.04
-                                                );
-                                                border-radius: 10px;
-                                            "
-                                        ></div>
-                                        <div
-                                            style="
-                                                height: 2rem;
-                                                background: rgba(
-                                                    79,
-                                                    110,
-                                                    246,
-                                                    0.3
-                                                );
-                                                border-radius: 8px;
-                                                width: 40%;
-                                            "
-                                        ></div>
-                                    </div>
-                                    <div
-                                        style="
-                                            margin-top: 1rem;
-                                            font-size: 0.9rem;
-                                        "
-                                    >
-                                        Add Issues
-                                    </div>
+                                    Demo this a mobile app of your store 333
+                                </div>
+                            </div>
+                            <div class="carousel-slide" data-index="3">
+                                <img
+                                    src="assets/img/demo4.jpg"
+                                    alt="Demo"
+                                    style="
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    "
+                                />
+                                <div
+                                    style="
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        right: 0;
+                                        padding: 2rem;
+                                        background: linear-gradient(
+                                            transparent,
+                                            rgba(0, 0, 0, 0.6)
+                                        );
+                                        font-family: var(--font-display);
+                                        font-weight: 700;
+                                        font-size: 0.9rem;
+                                        color: rgba(255, 255, 255, 0.7);
+                                        text-align: center;
+                                    "
+                                >
+                                    Demo this a mobile app of your store 4444
+                                </div>
+                            </div>
+                            <div class="carousel-slide" data-index="4">
+                                <img
+                                    src="assets/img/demo5.jpg"
+                                    alt="Demo"
+                                    style="
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    "
+                                />
+                                <div
+                                    style="
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        right: 0;
+                                        padding: 2rem;
+                                        background: linear-gradient(
+                                            transparent,
+                                            rgba(0, 0, 0, 0.6)
+                                        );
+                                        font-family: var(--font-display);
+                                        font-weight: 700;
+                                        font-size: 0.9rem;
+                                        color: rgba(255, 255, 255, 0.7);
+                                        text-align: center;
+                                    "
+                                >
+                                    Demo this a mobile app of your store 555
                                 </div>
                             </div>
                         </div>
@@ -1872,9 +1749,17 @@
                                 class="carousel-dot"
                                 data-index="2"
                             ></button>
+                            <button
+                                class="carousel-dot"
+                                data-index="3"
+                            ></button>
+                            <button
+                                class="carousel-dot"
+                                data-index="4"
+                            ></button>
                         </div>
                         <span class="carousel-counter" id="carousel-counter"
-                            >1 of 3</span
+                            >1 of 5</span
                         >
                         <button class="carousel-btn" id="carousel-next">
                             &#8594;
