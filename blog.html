@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Blog — MyFavoriteLocalBookstore</title>
+        <meta name="description" content="Stories, tips, and news from the world of local bookstores." />
+        <link rel="icon" type="image/jpg" href="https://yourdomain.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --font-display: "Unbounded", sans-serif;
+                --font-body: "DM Sans", sans-serif;
+                --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            [data-theme="dark"] {
+                --bg: #08080c;
+                --bg-surface: #0f0f14;
+                --bg-card: #16161d;
+                --bg-card-hover: #1c1c26;
+                --border: #22222e;
+                --border-light: #2a2a38;
+                --text: #f4f4f6;
+                --text-secondary: #9898a8;
+                --text-muted: #666678;
+                --accent: #4f6ef6;
+                --accent-glow: rgba(79, 110, 246, 0.25);
+                --gradient-accent: linear-gradient(135deg, #4f6ef6, #8b5cf6);
+                --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
+                --nav-bg: rgba(8, 8, 12, 0.85);
+            }
+
+            [data-theme="light"] {
+                --bg: #fafafa;
+                --bg-surface: #f4f4f5;
+                --bg-card: #ffffff;
+                --bg-card-hover: #f8f8fc;
+                --border: #e4e4e7;
+                --border-light: #eaeaef;
+                --text: #18181b;
+                --text-secondary: #52525b;
+                --text-muted: #a1a1aa;
+                --accent: #4f6ef6;
+                --accent-glow: rgba(79, 110, 246, 0.12);
+                --gradient-accent: linear-gradient(135deg, #4f6ef6, #7c3aed);
+                --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.04);
+                --nav-bg: rgba(250, 250, 250, 0.85);
+            }
+
+            body {
+                font-family: var(--font-body);
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.7;
+                min-height: 100vh;
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+
+            .container {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+
+            /* Nav */
+            .nav {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                background: var(--nav-bg);
+                backdrop-filter: blur(18px);
+                -webkit-backdrop-filter: blur(18px);
+                border-bottom: 1px solid var(--border);
+                padding: 1rem 0;
+            }
+            .nav-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 2rem;
+            }
+            .nav-logo {
+                font-family: var(--font-display);
+                font-weight: 900;
+                font-size: 1rem;
+                color: var(--text);
+                text-decoration: none;
+                letter-spacing: -0.02em;
+            }
+            .nav-logo:hover {
+                opacity: 0.8;
+            }
+            .nav-links {
+                display: flex;
+                gap: 1.5rem;
+                list-style: none;
+            }
+            .nav-links a {
+                color: var(--text-secondary);
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 500;
+                transition: color 0.2s;
+            }
+            .nav-links a:hover {
+                color: var(--text);
+            }
+            .theme-toggle {
+                width: 38px;
+                height: 38px;
+                border-radius: 10px;
+                border: 1px solid var(--border);
+                background: var(--bg-card);
+                color: var(--text-secondary);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.1rem;
+                transition: all 0.2s;
+                flex-shrink: 0;
+            }
+            .theme-toggle:hover {
+                border-color: var(--accent);
+                color: var(--text);
+            }
+
+            /* Hero */
+            .blog-hero {
+                padding: 5rem 0 3rem;
+                text-align: center;
+            }
+            .blog-hero h1 {
+                font-family: var(--font-display);
+                font-size: clamp(2rem, 5vw, 3.5rem);
+                font-weight: 900;
+                letter-spacing: -0.02em;
+                margin-bottom: 0.75rem;
+            }
+            .blog-hero p {
+                color: var(--text-secondary);
+                font-size: 1.1rem;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            /* Featured Post */
+            .featured {
+                margin-bottom: 4rem;
+            }
+            .featured-card {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                overflow: hidden;
+                text-decoration: none;
+                transition: all var(--transition-smooth);
+            }
+            .featured-card:hover {
+                border-color: var(--border-light);
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-card);
+            }
+            .featured-image {
+                background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 5rem;
+                min-height: 280px;
+            }
+            .featured-content {
+                padding: 2.5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .featured-tag {
+                display: inline-block;
+                background: var(--gradient-accent);
+                color: #fff;
+                font-size: 0.72rem;
+                font-weight: 700;
+                padding: 0.2rem 0.75rem;
+                border-radius: 100px;
+                margin-bottom: 1rem;
+                width: fit-content;
+            }
+            .featured-content h2 {
+                font-family: var(--font-display);
+                font-size: 1.5rem;
+                font-weight: 700;
+                letter-spacing: -0.01em;
+                margin-bottom: 0.75rem;
+                color: var(--text);
+            }
+            .featured-content p {
+                color: var(--text-secondary);
+                font-size: 0.92rem;
+                margin-bottom: 1rem;
+                line-height: 1.7;
+            }
+            .featured-meta {
+                font-size: 0.82rem;
+                color: var(--text-muted);
+            }
+
+            /* Posts Grid */
+            .posts-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            .post-card {
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                overflow: hidden;
+                text-decoration: none;
+                transition: all var(--transition-smooth);
+            }
+            .post-card:hover {
+                border-color: var(--border-light);
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-card);
+            }
+            .post-image {
+                background: linear-gradient(135deg, #16213e, #1a1a2e, #0f3460);
+                height: 160px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 3rem;
+            }
+            .post-body {
+                padding: 1.5rem;
+            }
+            .post-body h3 {
+                font-family: var(--font-display);
+                font-size: 1.05rem;
+                font-weight: 700;
+                letter-spacing: -0.01em;
+                margin-bottom: 0.5rem;
+                color: var(--text);
+            }
+            .post-body p {
+                color: var(--text-secondary);
+                font-size: 0.85rem;
+                line-height: 1.6;
+                margin-bottom: 0.75rem;
+            }
+            .post-meta {
+                font-size: 0.78rem;
+                color: var(--text-muted);
+            }
+
+            /* Newsletter */
+            .newsletter {
+                margin: 5rem 0;
+                padding: 4rem;
+                background: var(--bg-card);
+                border: 1px solid var(--border);
+                border-radius: 24px;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .newsletter::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle at 50% 50%, var(--accent-glow), transparent 60%);
+                pointer-events: none;
+            }
+            .newsletter h2 {
+                position: relative;
+                font-family: var(--font-display);
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 0.75rem;
+            }
+            .newsletter p {
+                position: relative;
+                color: var(--text-secondary);
+                margin-bottom: 1.5rem;
+                font-size: 0.95rem;
+            }
+            .newsletter-form {
+                position: relative;
+                display: flex;
+                gap: 0.75rem;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+            .newsletter-form input {
+                flex: 1;
+                padding: 0.75rem 1rem;
+                font-family: var(--font-body);
+                font-size: 0.9rem;
+                color: var(--text);
+                background: var(--bg-surface);
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                outline: none;
+                transition: border-color 0.2s;
+            }
+            .newsletter-form input:focus {
+                border-color: var(--accent);
+            }
+            .newsletter-form button {
+                padding: 0.75rem 1.5rem;
+                font-family: var(--font-body);
+                font-weight: 600;
+                font-size: 0.9rem;
+                background: var(--gradient-accent);
+                color: #fff;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                white-space: nowrap;
+                transition: opacity 0.2s;
+            }
+            .newsletter-form button:hover {
+                opacity: 0.9;
+            }
+
+            /* Footer */
+            .footer {
+                border-top: 1px solid var(--border);
+                padding: 2rem 0;
+                text-align: center;
+                color: var(--text-secondary);
+                font-size: 0.82rem;
+            }
+            .footer a {
+                color: var(--text-secondary);
+                text-decoration: none;
+            }
+            .footer a:hover {
+                color: var(--text);
+            }
+
+            @media (max-width: 768px) {
+                .nav-links {
+                    display: none;
+                }
+                .featured-card {
+                    grid-template-columns: 1fr;
+                }
+                .featured-image {
+                    min-height: 180px;
+                }
+                .featured-content {
+                    padding: 1.5rem;
+                }
+                .posts-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+                .newsletter {
+                    padding: 2.5rem 1.5rem;
+                }
+                .newsletter-form {
+                    flex-direction: column;
+                }
+            }
+            @media (max-width: 480px) {
+                .posts-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="nav-inner">
+                <a href="index.html" class="nav-logo">MyFavoriteLocalBookstore</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="icon-dark">&#9789;</span>
+                    <span class="icon-light" style="display:none">&#9788;</span>
+                </button>
+            </div>
+        </nav>
+
+        <section class="blog-hero">
+            <div class="container">
+                <h1>The Bookshop Journal</h1>
+                <p>Stories, tips, and news from the world of local bookstores.</p>
+            </div>
+        </section>
+
+        <main class="container">
+            <!-- Featured Post -->
+            <div class="featured">
+                <a href="#" class="featured-card">
+                    <div class="featured-image">&#128218;</div>
+                    <div class="featured-content">
+                        <span class="featured-tag">Featured</span>
+                        <h2>How independent bookstores are thriving in the digital age</h2>
+                        <p>
+                            Despite the rise of e-commerce giants, community bookshops are finding
+                            new ways to connect with readers — blending old-world charm with modern
+                            convenience.
+                        </p>
+                        <span class="featured-meta">June 15, 2026 &middot; 6 min read</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Posts Grid -->
+            <div class="posts-grid">
+                <a href="#" class="post-card">
+                    <div class="post-image">&#128214;</div>
+                    <div class="post-body">
+                        <h3>Building a reading list that actually gets read</h3>
+                        <p>Practical tips for curating a stack you'll finish — not just admire.</p>
+                        <span class="post-meta">June 10, 2026 &middot; 4 min read</span>
+                    </div>
+                </a>
+                <a href="#" class="post-card">
+                    <div class="post-image">&#9749;</div>
+                    <div class="post-body">
+                        <h3>Why every neighborhood needs a bookstore</h3>
+                        <p>Bookshops are more than retail — they're community anchors.</p>
+                        <span class="post-meta">June 5, 2026 &middot; 5 min read</span>
+                    </div>
+                </a>
+                <a href="#" class="post-card">
+                    <div class="post-image">&#128187;</div>
+                    <div class="post-body">
+                        <h3>Going mobile-first: what we learned launching our app</h3>
+                        <p>The journey from paper shelves to phone screens in three months.</p>
+                        <span class="post-meta">May 28, 2026 &middot; 7 min read</span>
+                    </div>
+                </a>
+                <a href="#" class="post-card">
+                    <div class="post-image">&#128221;</div>
+                    <div class="post-body">
+                        <h3>Inventory management for small bookshops</h3>
+                        <p>A no-nonsense guide to tracking stock without losing your mind.</p>
+                        <span class="post-meta">May 20, 2026 &middot; 5 min read</span>
+                    </div>
+                </a>
+                <a href="#" class="post-card">
+                    <div class="post-image">&#127775;</div>
+                    <div class="post-body">
+                        <h3>5 books that changed how we think about business</h3>
+                        <p>Our team's most-recommended reads for entrepreneurs and dreamers.</p>
+                        <span class="post-meta">May 14, 2026 &middot; 3 min read</span>
+                    </div>
+                </a>
+                <a href="#" class="post-card">
+                    <div class="post-image">&#128172;</div>
+                    <div class="post-body">
+                        <h3>Starting a book club that people actually show up to</h3>
+                        <p>Lessons from three years of packed living rooms and lively debates.</p>
+                        <span class="post-meta">May 8, 2026 &middot; 6 min read</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="newsletter">
+                <h2>Get the Journal in your inbox</h2>
+                <p>Monthly-ish emails about books, bookstores, and the people who love them.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); this.reset(); alert('Thanks for subscribing!');">
+                    <input type="email" placeholder="you@example.com" required />
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    &copy; 2026 MyFavoriteLocalBookstore &mdash;
+                    <a href="index.html">Back to site</a>
+                </p>
+            </div>
+        </footer>
+        <script>
+            const html = document.documentElement;
+            const toggle = document.getElementById("theme-toggle");
+            const iconDark = toggle.querySelector(".icon-dark");
+            const iconLight = toggle.querySelector(".icon-light");
+            function setTheme(theme) {
+                html.setAttribute("data-theme", theme);
+                iconDark.style.display = theme === "dark" ? "" : "none";
+                iconLight.style.display = theme === "light" ? "" : "none";
+                localStorage.setItem("theme", theme);
+            }
+            setTheme(localStorage.getItem("theme") || "dark");
+            toggle.addEventListener("click", () => {
+                setTheme(html.getAttribute("data-theme") === "dark" ? "light" : "dark");
+            });
+        </script>
+    </body>
+</html>

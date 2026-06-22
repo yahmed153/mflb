@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Terms of Service — MyFavoriteLocalBookstore</title>
+        <link rel="icon" type="image/jpg" href="https://yourdomain.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --font-display: "Unbounded", sans-serif;
+                --font-body: "DM Sans", sans-serif;
+            }
+
+            [data-theme="dark"] {
+                --bg: #08080c;
+                --bg-surface: #0f0f14;
+                --bg-card: #16161d;
+                --border: #22222e;
+                --text: #f4f4f6;
+                --text-secondary: #9898a8;
+                --accent: #4f6ef6;
+            }
+
+            [data-theme="light"] {
+                --bg: #fafafa;
+                --bg-surface: #f4f4f5;
+                --bg-card: #ffffff;
+                --border: #e4e4e7;
+                --text: #18181b;
+                --text-secondary: #52525b;
+                --accent: #4f6ef6;
+            }
+
+            body {
+                font-family: var(--font-body);
+                background: var(--bg);
+                color: var(--text);
+                line-height: 1.7;
+                min-height: 100vh;
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 0 1.5rem;
+            }
+
+            .nav {
+                padding: 1.25rem 0;
+                border-bottom: 1px solid var(--border);
+            }
+            .nav-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .nav a {
+                font-family: var(--font-display);
+                font-weight: 900;
+                font-size: 1rem;
+                color: var(--text);
+                text-decoration: none;
+                letter-spacing: -0.02em;
+            }
+            .nav a:hover {
+                opacity: 0.8;
+            }
+            .theme-toggle {
+                width: 38px;
+                height: 38px;
+                border-radius: 10px;
+                border: 1px solid var(--border);
+                background: var(--bg-card);
+                color: var(--text-secondary);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.1rem;
+                transition: all 0.2s;
+                flex-shrink: 0;
+            }
+            .theme-toggle:hover {
+                border-color: var(--accent);
+                color: var(--text);
+            }
+
+            .content {
+                padding: 4rem 0;
+            }
+            .content h1 {
+                font-family: var(--font-display);
+                font-size: 2.25rem;
+                font-weight: 900;
+                letter-spacing: -0.02em;
+                margin-bottom: 0.5rem;
+            }
+            .content .updated {
+                color: var(--text-secondary);
+                font-size: 0.88rem;
+                margin-bottom: 2.5rem;
+            }
+            .content h2 {
+                font-family: var(--font-display);
+                font-size: 1.25rem;
+                font-weight: 700;
+                margin-top: 2.5rem;
+                margin-bottom: 0.75rem;
+                letter-spacing: -0.01em;
+            }
+            .content p {
+                color: var(--text-secondary);
+                margin-bottom: 1rem;
+                font-size: 0.95rem;
+            }
+            .content ul {
+                color: var(--text-secondary);
+                padding-left: 1.5rem;
+                margin-bottom: 1rem;
+                font-size: 0.95rem;
+            }
+            .content ul li {
+                margin-bottom: 0.4rem;
+            }
+            .content a {
+                color: var(--accent);
+                text-decoration: none;
+            }
+            .content a:hover {
+                text-decoration: underline;
+            }
+
+            .footer {
+                border-top: 1px solid var(--border);
+                padding: 2rem 0;
+                text-align: center;
+                color: var(--text-secondary);
+                font-size: 0.82rem;
+            }
+            .footer a {
+                color: var(--text-secondary);
+                text-decoration: none;
+            }
+            .footer a:hover {
+                color: var(--text);
+            }
+
+            @media (max-width: 600px) {
+                .content h1 {
+                    font-size: 1.6rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="nav">
+            <div class="container">
+                <div class="nav-inner">
+                    <a href="index.html">&larr; MyFavoriteLocalBookstore</a>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <span class="icon-dark">&#9789;</span>
+                        <span class="icon-light" style="display:none">&#9788;</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="content">
+            <div class="container">
+                <h1>Terms of Service</h1>
+                <p class="updated">Last updated: June 21, 2026</p>
+
+                <p>
+                    By using this site you agree to these terms. If you don't agree, don't use it.
+                </p>
+
+                <h2>Use of the site</h2>
+                <ul>
+                    <li>You may browse, search, and contact us through the site.</li>
+                    <li>Don't misuse the site — no scraping, spamming, or anything that degrades it for others.</li>
+                    <li>We may change or take down parts of the site at any time without notice.</li>
+                </ul>
+
+                <h2>Your account</h2>
+                <p>
+                    If you create an account, you're responsible for keeping your credentials safe and
+                    for anything that happens under your account. Let us know immediately if you suspect
+                    unauthorized access.
+                </p>
+
+                <h2>Content</h2>
+                <ul>
+                    <li>Anything you submit through our forms or upload belongs to you — you grant us a license to use it to provide the service.</li>
+                    <li>Don't submit anything illegal, infringing, or malicious.</li>
+                    <li>We can remove content at our discretion if it violates these terms.</li>
+                </ul>
+
+                <h2>Intellectual property</h2>
+                <p>
+                    The site, its branding, and code are ours. Don't copy, redistribute, or reverse-engineer
+                    any part of it without written permission.
+                </p>
+
+                <h2>Third-party links</h2>
+                <p>
+                    We may link to other sites. We don't control them and aren't responsible for their
+                    content or practices.
+                </p>
+
+                <h2>Disclaimer</h2>
+                <p>
+                    The site is provided "as is." We don't guarantee it will be error-free, available
+                    at all times, or fit for a particular purpose. We aren't liable for damages arising
+                    from your use of the site, to the extent the law allows.
+                </p>
+
+                <h2>Changes</h2>
+                <p>
+                    We may update these terms. Continued use after changes means you accept the new terms.
+                </p>
+
+                <h2>Questions?</h2>
+                <p>
+                    <a href="mailto:hello@myfavoritelocalbookstore.com">hello@myfavoritelocalbookstore.com</a>
+                </p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <p>
+                    &copy; 2026 MyFavoriteLocalBookstore &mdash;
+                    <a href="index.html">Back to site</a>
+                </p>
+            </div>
+        </footer>
+        <script>
+            const html = document.documentElement;
+            const toggle = document.getElementById("theme-toggle");
+            const iconDark = toggle.querySelector(".icon-dark");
+            const iconLight = toggle.querySelector(".icon-light");
+            function setTheme(theme) {
+                html.setAttribute("data-theme", theme);
+                iconDark.style.display = theme === "dark" ? "" : "none";
+                iconLight.style.display = theme === "light" ? "" : "none";
+                localStorage.setItem("theme", theme);
+            }
+            setTheme(localStorage.getItem("theme") || "dark");
+            toggle.addEventListener("click", () => {
+                setTheme(html.getAttribute("data-theme") === "dark" ? "light" : "dark");
+            });
+        </script>
+    </body>
+</html>
